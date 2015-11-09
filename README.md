@@ -11,8 +11,8 @@ registroUsuarios()
   -> retornar mensaje
 
 sacarDinero()
-  -> comprobar clave
+  -> valor cuanto dinero
   -> comprobar cantidad de sacarDinero
   -> reducir cuenta
-  -> log cambios (*)
-  -> retornar mensaje# cashier
+  <!-- -> log cambios (*) -->
+  -> retornar mensaje cashier
