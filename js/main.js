@@ -1,11 +1,5 @@
-var cashMachineSesion = new CashMachine();
-
-document.getElementById('user-key-register').addEventListener('click', cashMachineSesion.userRegister, false);
-
-
-
-
-
-
-
-
+function createDOMElement(element, text, container) {
+  var node = document.createElement(element);
+  node.innerHTML = text
+  document.getElementById('buttons').appendChild(node);
+}
