@@ -21,12 +21,14 @@ var users = {
 
 document.getElementById('user-key-register').addEventListener('click', userRegister, false);
 
+var moneyAmount;
+
 function userRegister(){
 
   var userKey = document.getElementById('user-key-value').value;
 
   if(userValidation(userKey)){
-    console.info('Welcome, choose a service:');
+    console.info('Welcome, choose a service:\n moneyAmount' );
   }
   else{
     console.error('Wrong key. Try again.');
@@ -37,9 +39,14 @@ function userRegister(){
 function userValidation(userKey) {
     for( var i in users.users ) {
       if (userKey === users.users[i].key) {
+        moneyAmount =  users.users[i].money;
         return true;
       }
     };
+}
+
+function moneyAmount() {
+  console.log('Your current credit is ' + moneyAmount + '.');
 }
 
 // loadJSON('js/users.json',
