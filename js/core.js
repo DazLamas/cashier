@@ -29,17 +29,17 @@ function userRegister(){
     console.info('Welcome, choose a service:');
   }
   else{
-    console.error('Wrong key. try again.');
+    console.error('Wrong key. Try again.');
   }
 
 }
 
 function userValidation(userKey) {
-  for( var i in users ) {
-    if (userKey === users.users[1].key) {
-      return true;
-    }
-  };
+    for( var i in users.users ) {
+      if (userKey === users.users[i].key) {
+        return true;
+      }
+    };
 }
 
 // loadJSON('js/users.json',
