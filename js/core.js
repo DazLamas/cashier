@@ -1,4 +1,4 @@
-// (function(window, document){
+(function(window, document){
 
 var CashMachine = function() {
 
@@ -12,9 +12,9 @@ var CashMachine = function() {
     var userKey = document.getElementById('input-value').value;
 
     if(that.userValidation(userKey)){
-      createDOMElement('p', 'Welcome, choose a service:' );
-      createDOMElement('button', 'My balance' );
-      createDOMElement('button', 'Withdraw cash' );
+      removeDOMElements('button');
+      createDOMElement('button', 'My balance' , 'buttons-container', 'balance-key', ['click', cashMachineSesion.getCurrentBalance]);
+      createDOMElement('button', 'Withdraw cash' , 'buttons-container', 'withdraw-key', ['click', cashMachineSesion.getCash]);
       document.getElementById('display').innerHTML = 'Welcome, choose a service:';
     }
     else{
@@ -34,14 +34,19 @@ var CashMachine = function() {
   }
 
   this.getCurrentBalance = function() {
-    console.log('Your current credit is ' + userCash + '.');
+    document.getElementById('display').innerHTML = 'Your current credit is ' + userCash + '.';
   }
 
-  this.getCash = function(howMuchMoney) {
+  this.getCash = function() {
+    var howMuchMoney = document.getElementById('input-value').value;
     if(howMuchMoney <= userCash){
       userCash = users.users[currentUserIndex].money = userCash - howMuchMoney;
-      document.getElementById('display').innerHTML = 'You have withdraw ' + howMuchMoney + ' bitcoins from our cash machine. \n Your current balance is ' + userCash + 'BTC.';
+      document.getElementById('display').innerHTML = 'You have withdraw ' + howMuchMoney + ' bitcoins from our cash machine. \n Your current balance is ' + userCash + ' BTC.';
     }
   }
 }
-// })(window, document);
+
+var cashMachineSesion = new CashMachine();
+document.getElementById('register-key').addEventListener('click', cashMachineSesion.userRegister, false);
+
+})(window, document);
