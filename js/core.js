@@ -1,4 +1,4 @@
-(function(window, document){
+// (function(window, document){
 
 var CashMachine = function() {
 
@@ -49,4 +49,4 @@ var CashMachine = function() {
 var cashMachineSesion = new CashMachine();
 document.getElementById('register-key').addEventListener('click', cashMachineSesion.userRegister, false);
 
-})(window, document);
+// })(window, document);
